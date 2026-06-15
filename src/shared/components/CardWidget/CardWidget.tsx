@@ -1,13 +1,22 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 
 function CartWidget() {
-  return (
-    <div className="d-flex align-items-center gap-2">
-      <FontAwesomeIcon icon={faCartShopping} />
+  const { totalItems } = useCart();
 
-      <span>0</span>
-    </div>
+  return (
+    <Link to="/checkout" className="cart-link">
+      <span className="cart-icon">🛒</span>
+
+      {totalItems > 0 && (
+        <span
+          className="cart-badge"
+          aria-label={`Carrito con ${totalItems} productos`}
+        >
+          {totalItems}
+        </span>
+      )}
+    </Link>
   );
 }
 

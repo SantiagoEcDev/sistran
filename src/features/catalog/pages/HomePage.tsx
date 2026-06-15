@@ -1,5 +1,7 @@
+import ItemListContainer from "../components/ItemListContainer";
+
 function HomePage() {
-  return <h1>Home</h1>;
+  return <ItemListContainer title="Products" />;
 }
 
 export default HomePage;

@@ -1,5 +1,7 @@
+import ItemDetailContainer from "../components/ItemDetailContainer";
+
 function ProductDetailPage() {
-  return <h1>Product Detail</h1>;
+  return <ItemDetailContainer />;
 }
 
 export default ProductDetailPage;
