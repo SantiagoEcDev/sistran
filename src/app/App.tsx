@@ -1,10 +1,15 @@
-import './App.css'
+import { RouterProvider } from "react-router-dom";
+import { router } from "../router";
+import { CartProvider } from "../shared/context/cart/CartProvider";
+import { ToastContainer } from "react-toastify";
 
 function App() {
-
   return (
-    <h1>Sistran</h1>
-  )
+    <CartProvider>
+      <ToastContainer position="bottom-right" />
+      <RouterProvider router={router} />
+    </CartProvider>
+  );
 }
 
-export default App
+export default App;

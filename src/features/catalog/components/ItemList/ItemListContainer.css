@@ -1,0 +1,30 @@
+.catalog-page {
+  background-color: #f5f1e8;
+  min-height: 100vh;
+  padding: 28px 0;
+}
+
+.catalog-wrapper {
+  width: 100%;
+  padding: 0 28px;
+}
+
+.catalog-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin-bottom: 24px;
+  letter-spacing: 0.2px;
+}
+
+.error-text {
+  color: #a33;
+  padding: 20px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 0;
+  color: #666;
+  font-size: 15px;
+}
