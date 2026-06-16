@@ -1,7 +1,7 @@
-import ItemListContainer from "../components/ItemListContainer";
+import ItemListContainer from "../components/ItemList/ItemListContainer";
 
 function HomePage() {
-  return <ItemListContainer title="Products" />;
+  return <ItemListContainer title="Productos" />;
 }
 
 export default HomePage;

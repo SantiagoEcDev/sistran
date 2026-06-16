@@ -1,23 +1,28 @@
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStore } from "@fortawesome/free-solid-svg-icons";
 import CartWidget from "../CardWidget/CardWidget";
-
+import "./Navbar.css";
 
 function NavBar() {
   return (
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand as={Link} to="/">
+    <Navbar className="navbar-custom" expand="lg">
+      <Container className="navbar-layout">
+        <Link to="/" className="navbar-brand-custom">
           SISTRAN
-        </Navbar.Brand>
+        </Link>
 
-        <Nav className="ms-auto d-flex align-items-center gap-3">
-          <Nav.Link as={Link} to="/">
+        <div className="navbar-center">
+          <Link to="/" className="nav-link-custom">
+            <FontAwesomeIcon icon={faStore} className="nav-icon" />
             Catálogo
-          </Nav.Link>
+          </Link>
+        </div>
 
+        <div className="navbar-right">
           <CartWidget />
-        </Nav>
+        </div>
       </Container>
     </Navbar>
   );

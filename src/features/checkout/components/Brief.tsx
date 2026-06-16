@@ -1,53 +1,74 @@
-import { Button } from "react-bootstrap";
 import { useCart } from "../../../shared/hooks/useCart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrash,
+  faCartShopping,
+  faMoneyBill,
+} from "@fortawesome/free-solid-svg-icons";
+import "./Brief.css";
+
 function Brief() {
   const { cart, removeItem, totalPrice, clearCart } = useCart();
 
   if (cart.length === 0) {
     return (
-      <div className="text-center py-5">
+      <div className="cart-empty">
+        <FontAwesomeIcon icon={faCartShopping} className="cart-empty-icon" />
         <p>Tu carrito está vacío</p>
       </div>
     );
   }
 
   return (
-    <div className="d-flex flex-column gap-3">
+    <div className="cart-wrapper">
       {cart.map((item) => (
-        <div
-          key={item.product.id}
-          className="d-flex justify-content-between align-items-center border p-3"
-        >
-          <div>
-            <h6>{item.product.name}</h6>
+        <div key={item.product.id} className="cart-item">
+          <div className="cart-image">
+            <img src={item.product.image} alt={item.product.name} />
+          </div>
 
-            <p className="mb-1">Cantidad: {item.quantity}</p>
+          <div className="cart-info">
+            <h6 className="cart-title">{item.product.name}</h6>
 
-            <p className="mb-0">
+            <p className="cart-qty">
+              Cantidad: <strong>{item.quantity}</strong>
+            </p>
+
+            <p className="cart-subtotal">
               Subtotal: $
               {(item.product.price * item.quantity).toLocaleString("es-CO")}
             </p>
           </div>
 
-          <Button variant="dark" onClick={() => removeItem(item.product.id)}>
-            Eliminar
-          </Button>
+          <button
+            className="cart-delete"
+            onClick={() => removeItem(item.product.id)}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
         </div>
       ))}
 
-      <div className="d-flex justify-content-between mt-4">
-        <h5>Total:</h5>
-        <h5>${totalPrice.toLocaleString("es-CO")}</h5>
+      <div className="cart-total">
+        <div className="total-left">
+          <FontAwesomeIcon icon={faMoneyBill} />
+          <span>Total</span>
+        </div>
+
+        <div className="total-right">${totalPrice.toLocaleString("es-CO")}</div>
       </div>
 
-      <div className="d-flex gap-2">
-        <Button variant="outline-dark" onClick={clearCart}>
+      <div className="cart-actions">
+        <button className="btn-clear" onClick={clearCart}>
           Vaciar carrito
-        </Button>
+        </button>
 
-        <Button variant="dark" onClick={() => alert("Compra realizada")}>
+        <button
+          className="btn-checkout"
+          onClick={() => alert("Compra realizada")}
+        >
           Finalizar compra
-        </Button>
+        </button>
       </div>
     </div>
   );

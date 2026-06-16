@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
-import { useCart } from "../../../shared/hooks/useCart";
-import type { Product } from "../pages/types/product";
-import ItemQuantitySelector from "./ItemQuantitySelector/ItemQuantitySelector";
+import { useCart } from "../../../../shared/hooks/useCart";
+import type { Product } from "../../pages/types/product";
+import ItemQuantitySelector from "../ItemQuantitySelector/ItemQuantitySelector";
 
 interface ItemDetailProps {
   product: Product;

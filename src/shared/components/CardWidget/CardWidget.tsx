@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import "./CardWidget.css";
 
 function CartWidget() {
   const { totalItems } = useCart();
 
   return (
     <Link to="/checkout" className="cart-link">
-      <span className="cart-icon">🛒</span>
+      <FontAwesomeIcon icon={faCartShopping} className="cart-icon" />
 
       {totalItems > 0 && (
         <span
